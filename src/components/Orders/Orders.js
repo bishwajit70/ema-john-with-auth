@@ -10,7 +10,7 @@ import './Orders.css'
 const Orders = () => {
     const [products, setProducts] = useProducts();
     const [cart, setCart] = useCart(products);
-    const handleRemoveProduct = (product)=>{
+    const handleRemoveProduct = (product) => {
         // console.log(product)
         const rest = cart.filter(pd => pd.id !== product.id)
         setCart(rest);
@@ -21,19 +21,19 @@ const Orders = () => {
         <div className='shop-container'>
             <div className='review-items-container'>
                 {
-                    cart.map(product =><ReviewItem
-                    key={product.id}
-                    product={product}
-                    handleRemoveProduct={handleRemoveProduct}
+                    cart.map(product => <ReviewItem
+                        key={product.id}
+                        product={product}
+                        handleRemoveProduct={handleRemoveProduct}
                     ></ReviewItem>)
                 }
             </div>
             <div className="cart-container">
-            <Cart cart={cart}>
-                <Link to='/inventory'>
-                    <button>Proceed Checkout</button>
-                </Link>
-            </Cart>
+                <Cart cart={cart}>
+                    <Link to='/shipment'>
+                        <button>Proceed Shipment</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
